@@ -40,7 +40,8 @@ public class WP4MSigDB {
 			String url = "http://data.wikipathways.org/" + release + "/gmt/wikipathways-" + release + "-gmt-" + s + ".gmt"; 
 			BufferedReader in = new BufferedReader(new InputStreamReader(new URL(url).openStream()));
 			String inputLine;
-			File output = new File("GMT_WP_" + release + "_" + s + ".txt");
+			new File(release).mkdir();
+			File output = new File(release, "GMT_WP_" + release + "_" + s + ".txt");
 			BufferedWriter writer = new BufferedWriter(new FileWriter(output));
 
 			int count = 0;
