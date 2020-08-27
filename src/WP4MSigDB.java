@@ -64,7 +64,7 @@ public class WP4MSigDB {
 				String stdName = name.toUpperCase().replace(" ", "_");
 				stdName = stdName.replaceAll("[^a-zA-Z0-9_]", "");
 				
-				writer.write("STANDARD NAME\tWP_" + stdName +"\n");
+				writer.write("STANDARD_NAME\tWP_" + stdName +"\n");
 				writer.write("ORGANISM\t" + org +"\n");
 				writer.write("EXTERNAL_DETAILS_URL\t" + purl +"\n");
 				writer.write("PMID\t" +"\n");
