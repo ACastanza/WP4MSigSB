@@ -30,7 +30,7 @@ public class WP4MSigDB {
 
 	public static void main(String[] args) throws Exception {
 		
-		String release = "20200710";
+		String release = "20200810";
 		Set<String> species = new HashSet<String>();
 		species.add("Homo_sapiens");
 		species.add("Mus_musculus");
@@ -63,17 +63,18 @@ public class WP4MSigDB {
 				
 				String stdName = name.toUpperCase().replace(" ", "_");
 				stdName = stdName.replaceAll("[^a-zA-Z0-9_]", "");
+				stdName = stdName.replaceAll("__", "_");
+				stdName = stdName.replaceAll("_$", "");
+				stdName = stdName.replaceAll("^_", "");
 				
 				writer.write("STANDARD_NAME\tWP_" + stdName +"\n");
 				writer.write("ORGANISM\t" + org +"\n");
 				writer.write("EXTERNAL_DETAILS_URL\t" + purl +"\n");
-				writer.write("PMID\t" +"\n");
-				writer.write("GEOID\t" +"\n");
 				writer.write("EXACT_SOURCE\t" + id +"\n");
-				writer.write("CHIP\tEntrezGeneIds" +"\n");
-				writer.write("CONTRIBUTOR\t" + buffer1[1] + "\nCONTRIBUTOR_ORG\tWikiPathways\nCONTRIBUTOR_EMAIL\t\n");
+				writer.write("CHIP\tHuman_NCBI_Gene_ID" +"\n");
+				writer.write("CONTRIBUTOR\tWikiPathways" +"\n");
+				writer.write("CONTRIBUTOR_OR\tWikiPathways" +"\n");
 				writer.write("DESCRIPTION_BRIEF\t" + name +"\n");
-				writer.write("DESCRIPTION_FULL\t" +"\n");
 				writer.write("MEMBERS\t" + ids +"\n");
 				writer.write("\n");
 			}
