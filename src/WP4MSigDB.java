@@ -79,6 +79,7 @@ public class WP4MSigDB {
 				writer.write("CONTRIBUTOR_OR\tWikiPathways" +"\n");
 				writer.write("DESCRIPTION_BRIEF\t" + name +"\n");
 				writer.write("MEMBERS\t" + ids +"\n");
+				writer.write("HISTORY_7.2\tInitial Version: WikiPathways Release " + release +"\n");
 				writer.write("\n");
 			}
 			System.out.println("WikiPathways GMT input file for " + s + " with " + count + " gene sets: " + output.getAbsolutePath());
