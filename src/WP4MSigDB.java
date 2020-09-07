@@ -65,6 +65,7 @@ public class WP4MSigDB {
 				stdName = stdName.replaceAll("[^a-zA-Z0-9_]", "");
 				stdName = stdName.replaceAll("__", "_");
 				stdName = stdName.replaceAll("_$", "");
+				stdName = stdName.replaceAll("_$", "");
 				stdName = stdName.replaceAll("^_", "");
 				
 				writer.write("STANDARD_NAME\tWP_" + stdName +"\n");
@@ -72,6 +73,8 @@ public class WP4MSigDB {
 				writer.write("EXTERNAL_DETAILS_URL\t" + purl +"\n");
 				writer.write("EXACT_SOURCE\t" + id +"\n");
 				writer.write("CHIP\tHuman_NCBI_Gene_ID" +"\n");
+				writer.write("CATEGORY_CODE\tC2" +"\n");
+				writer.write("SUB_CATEGORY_CODE\tCP:WIKIPATHWAYS" +"\n");
 				writer.write("CONTRIBUTOR\tWikiPathways" +"\n");
 				writer.write("CONTRIBUTOR_OR\tWikiPathways" +"\n");
 				writer.write("DESCRIPTION_BRIEF\t" + name +"\n");
