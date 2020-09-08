@@ -29,8 +29,23 @@ import java.util.Set;
 public class WP4MSigDB {
 
 public static void main(String[] args) throws Exception {
+								var currenturl = new URL("http://data.wikipathways.org/current/gmt/");
+								var br = new BufferedReader(new InputStreamReader(currenturl.openStream()));
+								String line;
+								var sb = new StringBuilder();
+								while ((line = br.readLine()) != null) {
+																sb.append(line);
+																sb.append(System.lineSeparator());
+								}
+								String singleString = sb.toString();
 
-								String release = "20200810";
+								String str = singleString;
+								String[] arrOfStr = str.split("\n");
+								String gmtname = arrOfStr[28];
+								String[] parsedname = gmtname.split("-");
+								String parsedgmtname = parsedname[1];
+
+								String release = parsedgmtname;
 								Set<String> species = new HashSet<String>();
 								species.add("Homo_sapiens");
 								species.add("Mus_musculus");
@@ -54,6 +69,7 @@ public static void main(String[] args) throws Exception {
 																} else {
 																								chip = "NULL";
 																}
+
 																int count = 0;
 																while ((inputLine = in.readLine()) != null) {
 																								count++;
@@ -90,7 +106,7 @@ public static void main(String[] args) throws Exception {
 																								writer.write("DESCRIPTION_BRIEF\t" + name +"\n");
 																								writer.write("MEMBERS\t" + ids +"\n");
 																								writer.write("HISTORY_7.2\tInitial Version: WikiPathways Release " + release +"\n");
-//				writer.write("HISTORY_7.2\tUpdated to WikiPathways Release " + release +"\n");
+//																								writer.write("HISTORY_8.0\tUpdated to WikiPathways Release " + release +"\n");
 																								writer.write("\n");
 																}
 																System.out.println("WikiPathways GMT input file for " + s + " with " + count + " gene sets: " + output.getAbsolutePath());
