@@ -56,7 +56,7 @@ public static void main(String[] args) throws Exception {
 																BufferedReader in = new BufferedReader(new InputStreamReader(new URL(url).openStream()));
 																String inputLine;
 																new File(release).mkdir();
-																File output = new File(release, "GMT_WP_" + release + "_" + s + ".txt");
+																File output = new File(release, "WP_WikiPathways_" + release + "_" + s + ".txt");
 																BufferedWriter writer = new BufferedWriter(new FileWriter(output));
 
 																String chip;
