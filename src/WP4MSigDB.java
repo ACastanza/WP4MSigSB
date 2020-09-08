@@ -34,7 +34,7 @@ public class WP4MSigDB {
 		Set<String> species = new HashSet<String>();
 		species.add("Homo_sapiens");
 		species.add("Mus_musculus");
-		species.add("Rattus_norvegicus");
+//		species.add("Rattus_norvegicus");
 		
 		for(String s : species) {
 			String url = "http://data.wikipathways.org/" + release + "/gmt/wikipathways-" + release + "-gmt-" + s + ".gmt"; 
@@ -44,6 +44,16 @@ public class WP4MSigDB {
 			File output = new File(release, "GMT_WP_" + release + "_" + s + ".txt");
 			BufferedWriter writer = new BufferedWriter(new FileWriter(output));
 
+		String chip;
+			if (s == "Homo_sapiens") {
+				chip = "Human_NCBI_Gene_ID";
+			} else if (s == "Mus_musculus"){
+				chip = "Mouse_NCBI_Gene_ID";
+				} else if (s == "Rattus_norvegicus"){
+					chip = "Rat_NCBI_Gene_ID";
+					} else {
+					chip = "NULL";
+}
 			int count = 0;
 			while ((inputLine = in.readLine()) != null) {
 				count++;
@@ -72,7 +82,7 @@ public class WP4MSigDB {
 				writer.write("ORGANISM\t" + org +"\n");
 				writer.write("EXTERNAL_DETAILS_URL\t" + purl +"\n");
 				writer.write("EXACT_SOURCE\t" + id +"\n");
-				writer.write("CHIP\tHuman_NCBI_Gene_ID" +"\n");
+				writer.write("CHIP\t"+ chip +"\n");
 				writer.write("CATEGORY_CODE\tC2" +"\n");
 				writer.write("SUB_CATEGORY_CODE\tCP:WIKIPATHWAYS" +"\n");
 				writer.write("CONTRIBUTOR\tWikiPathways" +"\n");
@@ -80,6 +90,7 @@ public class WP4MSigDB {
 				writer.write("DESCRIPTION_BRIEF\t" + name +"\n");
 				writer.write("MEMBERS\t" + ids +"\n");
 				writer.write("HISTORY_7.2\tInitial Version: WikiPathways Release " + release +"\n");
+//				writer.write("HISTORY_7.2\tUpdated to WikiPathways Release " + release +"\n");
 				writer.write("\n");
 			}
 			System.out.println("WikiPathways GMT input file for " + s + " with " + count + " gene sets: " + output.getAbsolutePath());
