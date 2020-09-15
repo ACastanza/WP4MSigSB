@@ -102,7 +102,7 @@ public static void main(String[] args) throws Exception {
 																								writer.write("CATEGORY_CODE\tC2" +"\n");
 																								writer.write("SUB_CATEGORY_CODE\tCP:WIKIPATHWAYS" +"\n");
 																								writer.write("CONTRIBUTOR\tWikiPathways" +"\n");
-																								writer.write("CONTRIBUTOR_OR\tWikiPathways" +"\n");
+																								writer.write("CONTRIBUTOR_ORG\tWikiPathways" +"\n");
 																								writer.write("DESCRIPTION_BRIEF\t" + name +"\n");
 																								writer.write("MEMBERS\t" + ids +"\n");
 																								writer.write("HISTORY_7.2\tInitial Version: WikiPathways Release " + release +"\n");
